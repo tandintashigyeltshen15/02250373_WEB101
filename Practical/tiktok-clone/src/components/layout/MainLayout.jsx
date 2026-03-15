@@ -82,7 +82,7 @@ export default function MainLayout({ children }) {
           ))}
         </div>
 
-        {/* Change 1: Sidebar Login + Signup */}
+        {/* Sidebar Login + Signup */}
         <div className="px-3 py-4 mt-2">
           <p className="text-sm text-gray-500 mb-4">
             Log in to follow creators, like videos, and view comments.
@@ -109,7 +109,6 @@ export default function MainLayout({ children }) {
       {/* Main Content */}
       <div className="ml-60 flex-1">
         <div className="max-w-[1150px] mx-auto">
-
           {/* Header */}
           <header className="h-16 border-b flex items-center justify-between px-4">
             <div className="w-1/3"></div>
@@ -125,22 +124,27 @@ export default function MainLayout({ children }) {
               </div>
             </div>
 
-            <div className="w-1/3 flex justify-end space-x-4">
+            <div className="w-1/3 flex justify-end items-center space-x-4">
               <Link href="/upload">
                 <button className="border px-3 py-1 rounded-md hover:bg-gray-50 flex items-center">
                   <FaPlus className="mr-2" /> Upload
                 </button>
               </Link>
 
-              {/* Change 2: Header Login Button */}
               <Link href="/login">
                 <button className="bg-red-500 text-white px-6 py-1 rounded-md hover:bg-red-600">
                   Log in
                 </button>
               </Link>
 
+              <Link href="/signup">
+                <button className="border px-4 py-1 rounded-md hover:bg-gray-50">
+                  Sign up
+                </button>
+              </Link>
+
               <Link href="/profile">
-                <FaRegUser className="text-xl" />
+                <FaRegUser className="text-xl cursor-pointer" />
               </Link>
             </div>
           </header>
