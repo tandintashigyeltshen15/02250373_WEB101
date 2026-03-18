@@ -40,12 +40,12 @@ Once I fixed the folder structure and restarted the development server, the logi
 
 Another challenge I faced was some **typos in class names**, such as incorrect Tailwind CSS classes. These small mistakes caused some layout issues, but I fixed them by carefully checking the code.
 
-# (screenshot name = 404 error.png)
-Example: Screenshot showing the 404 error before fixing the folder structure.
+# Screenshot:
+<img src="![error](Practical/tiktok-clone/404 error.png)">
+
 
 # (screenshot name = Working login page.png)
-Example: Screenshot showing the working login page after the issue was resolved.
 
-### Conclusion
+<img src=![resolved login](<Practical/tiktok-clone/Working login page.png>)>
 
 Overall, this project helped me gain practical experience with React and Next.js. I learned how to build a structured web application, implement navigation between pages, and create forms with validation. Despite facing some challenges during development, solving these issues helped me better understand how modern web frameworks work.
