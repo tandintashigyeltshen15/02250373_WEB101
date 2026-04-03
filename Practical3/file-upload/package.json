@@ -1,5 +1,5 @@
 {
-  "name": "tiktok-clone",
+  "name": "file-upload",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,17 +9,19 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "next": "16.1.6",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "react-hook-form": "^7.71.2",
-    "react-icons": "^5.6.0"
+    "axios": "^1.13.6",
+    "formidable": "^3.5.4",
+    "next": "16.2.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-dropzone": "^15.0.0",
+    "react-hook-form": "^7.72.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.1.6",
+    "eslint-config-next": "16.2.1",
     "tailwindcss": "^4"
   }
 }
