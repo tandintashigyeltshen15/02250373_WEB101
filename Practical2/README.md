@@ -32,7 +32,7 @@ It demonstrates how REST APIs work in a real web application.
 
 ---
 
-## ▶ How to Run the Project
+## How to Run the Project
 
 1. Download or clone the project
 2. Open the folder in VS Code

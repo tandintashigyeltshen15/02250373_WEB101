@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# README.md
 
-## Getting Started
+## File Upload Implementation (Frontend)
 
-First, run the development server:
+### Overview
 
-```bash
+This project is a simple frontend file upload system built using React (Next.js). The goal was to create an easy-to-use interface where users can select or drag and drop files, while also checking if the files meet certain requirements like type and size. At this stage, the backend is not yet connected, so the upload process is not fully functional.
+
+## Setup Instructions
+
+1. Create a new Next.js project:
+
+npx create-next-app file-upload
+cd file-upload
+
+2. Install the required dependencies:
+
+npm install react-hook-form formidable axios react-dropzone
+
+3. Run the project:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features Implemented
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+* A file upload form using React Hook Form
+* File validation (checking file type and size)
+* Drag-and-drop feature using react-dropzone
+* Upload progress tracking using axios (UI-level)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+* pages/index.js → Contains the main user interface
+* pages/api/upload.js → Placeholder for backend API
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Result
 
-## Deploy on Vercel
+The frontend part of the application is working as expected. Users can interact with the UI, select files, and see validations. However, since the backend is not connected yet, the files cannot actually be uploaded. This part will be completed in WEB102 Practical 3.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Reflection.md
+
+## Documentation
+
+In this practical, I worked on building the frontend of a file upload system using React and Next.js. I used react-hook-form to handle form inputs and validation, which made managing the form much easier. I also used axios to simulate file upload requests and track progress.
+
+To make the interface more interactive, I added a drag-and-drop feature using react-dropzone. I also implemented file validation to ensure that only files with the correct type and size can be selected.
+
+## Reflection
+
+### What I Learned
+
+Through this practical, I gained a better understanding of how file uploads work on the frontend side. I learned how to handle forms more efficiently, validate user input, and improve user experience with features like drag-and-drop.
+
+I also understood how different libraries can work together to simplify development and make the application more interactive.
+
+### Challenges Faced
+
+One challenge I faced was understanding how the file upload process actually works between the frontend and backend. Since the backend is not connected yet, it was difficult to see the complete flow.
+
+I also found it a bit tricky to implement validation correctly and manage multiple libraries at the same time.
+
+### How I Overcame Them
+
+I overcame these challenges by going through documentation, trying out examples, and testing each feature step by step. Breaking the task into smaller parts helped me understand how everything fits together.
+
+
