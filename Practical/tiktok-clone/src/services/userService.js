@@ -1,4 +1,4 @@
-import apiClient from '../lib/axios';
+import apiClient from '../lib/api-config';
 
 export const getUserById = async (userId) => {
   try {
@@ -14,7 +14,7 @@ export const updateUser = async (id, formData) => {
   try {
     const response = await apiClient.put(`/users/${id}`, formData, {
       headers: {
-        'Content-Type': 'multipart/form-data', // Important for file uploads
+        'Content-Type': 'multipart/form-data',
       },
     });
     return response.data;
@@ -66,15 +66,14 @@ export const getUserFollowing = async (id) => {
   }
 };
 
-export const getUserVideos = async (id) => {
+export const getUserVideos = async (userId) => {
   try {
-    const id = typeof id === 'object' ? id.id : id;
-    
+   
+    const id = typeof userId === 'object' ? userId.id : userId;
     const response = await apiClient.get(`/users/${id}/videos`);
     return response.data;
   } catch (error) {
-    console.error(`Error fetching videos for user ${id}:`, error);
-    
+    console.error(`Error fetching videos for user ${userId}:`, error);
     return { videos: [] };
   }
 };

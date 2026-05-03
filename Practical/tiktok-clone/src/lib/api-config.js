@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Define the base URL for the API
-const API_BASE_URL = 'https://localhost:8000/api'; // Adjust port to yours
+const API_BASE_URL = 'http://localhost:8000/api'; // Adjust port to yours
 
 // Create main API instance
 const api = axios.create({

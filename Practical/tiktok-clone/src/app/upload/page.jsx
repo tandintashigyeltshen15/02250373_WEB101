@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../../contexts/authContext';
 import { uploadVideoToStorage, uploadThumbnailToStorage, createVideo } from '../../services/uploadService';
@@ -20,11 +20,14 @@ const UploadPage = () => {
   const videoInputRef = useRef(null);
   const thumbnailInputRef = useRef(null);
 
-  // Redirect if not authenticated
-  if (!isAuthenticated) {
-    router.push('/');
-    return null;
-  }
+  // ✅ Fixed - redirect inside useEffect
+  useEffect(() => {
+    if (!isAuthenticated) {
+      router.push('/');
+    }
+  }, [isAuthenticated, router]);
+
+  if (!isAuthenticated) return null;
 
   const handleVideoChange = (e) => {
     const file = e.target.files[0];
@@ -73,36 +76,34 @@ const UploadPage = () => {
     try {
       setUploading(true);
       setUploadProgress(0);
-      
-      // Step 1: Upload video directly to Supabase
+
       const uploadToast = toast.loading('Uploading video... 0%');
-      
+
       const videoUploadResult = await uploadVideoToStorage(user.id, videoFile);
       setUploadProgress(50);
       toast.loading('Uploading video... 50%', { id: uploadToast });
-      
+
       let thumbnailUploadResult = null;
       if (thumbnailFile) {
         thumbnailUploadResult = await uploadThumbnailToStorage(user.id, thumbnailFile);
       }
-      
+
       setUploadProgress(75);
       toast.loading('Uploading video... 75%', { id: uploadToast });
-      
-      // Step 2: Create video in the database with the Supabase URLs
+
       const videoData = {
         caption,
         videoUrl: videoUploadResult.url,
         videoStoragePath: videoUploadResult.storagePath,
       };
-      
+
       if (thumbnailUploadResult) {
         videoData.thumbnailUrl = thumbnailUploadResult.url;
         videoData.thumbnailStoragePath = thumbnailUploadResult.storagePath;
       }
-      
+
       await createVideo(videoData);
-      
+
       setUploadProgress(100);
       toast.success('Video uploaded successfully!', { id: uploadToast });
       router.push('/');
@@ -217,8 +218,8 @@ const UploadPage = () => {
               {uploading && (
                 <div className="mb-4">
                   <div className="w-full bg-gray-200 rounded-full h-2.5">
-                    <div 
-                      className="bg-blue-500 h-2.5 rounded-full" 
+                    <div
+                      className="bg-blue-500 h-2.5 rounded-full"
                       style={{ width: `${uploadProgress}%` }}
                     ></div>
                   </div>
