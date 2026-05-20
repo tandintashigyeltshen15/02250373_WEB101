@@ -1,6 +1,6 @@
 # Weather API Dashboard 
 
-## 📌Overview
+## Overview
 This project is a simple Weather API Dashboard that allows users to:
 - Get current weather using a city name (GET request)
 - Save locations (POST request)
